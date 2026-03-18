@@ -17,6 +17,9 @@ const C = {
 };
 
 export default function FuturaTiersPage() {
+  const calendarUrl = "https://link.futuradigital.app/widget/booking/SuJF7zuSUQtysLGaeDUL";
+  const logoPath = "/futura-logo.png";
+
   const tiers = [
     {
       name: "Tier 1",
@@ -35,7 +38,7 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Capture and organise leads from paid ads.",
-      cta: "Start with lead capture",
+      cta: "Book a call",
       highlight: false,
     },
     {
@@ -56,7 +59,7 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Turn ad enquiries into conversations and bookings.",
-      cta: "Choose the conversion tier",
+      cta: "Book a call",
       highlight: true,
     },
     {
@@ -82,7 +85,7 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Turn paid leads into a fully automated customer journey.",
-      cta: "Unlock the AI growth engine",
+      cta: "Book a call",
       highlight: false,
     },
   ];
@@ -109,36 +112,70 @@ export default function FuturaTiersPage() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: C.bg, color: C.white }}>
-
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section style={{ borderBottom: `1px solid ${C.border}` }}>
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
           <div className="max-w-4xl">
+            <div className="mb-10 flex items-center gap-4">
+
+              <img
+                src={logoPath}
+                alt="Futura Digital"
+                className="h-10 w-auto"
+                style={{
+                  border: `1px solid ${C.border}`,
+                  backgroundColor: C.surface,
+                }}
+              />
+              <div>
+                <p className="text-sm font-semibold tracking-wide" style={{ color: C.white }}>
+                  Futura Digital
+                </p>
+                <p className="text-sm" style={{ color: C.muted }}>
+                  Ads conversion infrastructure for service businesses
+                </p>
+              </div>
+            </div>
+
             <span
               className="inline-flex rounded-full px-4 py-1 text-sm font-medium"
-              style={{ border: `1px solid ${C.border}`, color: C.muted, backgroundColor: C.surface }}
+              style={{
+                border: `1px solid ${C.border}`,
+                color: C.muted,
+                backgroundColor: C.surface,
+              }}
             >
               Futura Digital × Google Ads Partner Offer
             </span>
+
             <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-6xl" style={{ color: C.white }}>
               Three CRM tiers built to make paid ads convert better.
             </h1>
+
             <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: C.muted }}>
               You run the ads. We install the system that captures, responds to, and converts the leads.
               The result is stronger return on ad spend, clearer attribution, and better client retention.
             </p>
+
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#tiers"
+                href={calendarUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-2xl px-6 py-3 text-sm font-medium shadow-sm transition hover:opacity-90"
                 style={{ backgroundColor: C.coral, color: C.white }}
               >
-                Explore the tiers
+                Book a partner call
               </a>
+
               <a
                 href="#comparison"
                 className="rounded-2xl px-6 py-3 text-sm font-medium transition"
-                style={{ border: `1px solid ${C.border}`, color: C.muted, backgroundColor: "transparent" }}
+                style={{
+                  border: `1px solid ${C.border}`,
+                  color: C.muted,
+                  backgroundColor: "transparent",
+                }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = C.surface)}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
               >
@@ -153,18 +190,36 @@ export default function FuturaTiersPage() {
       <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-12">
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { step: "Step 1", title: "Capture", body: "Every enquiry from Google Ads, landing pages, or the website is captured and organised." },
-            { step: "Step 2", title: "Convert", body: "Faster responses, SMS follow-up, missed call text-back, and booking tools improve lead conversion." },
-            { step: "Step 3", title: "Grow", body: "AI, WhatsApp, reviews, campaigns, and reactivation turn ad leads into a long-term growth engine." },
+            {
+              step: "Step 1",
+              title: "Capture",
+              body: "Every enquiry from Google Ads, landing pages, or the website is captured and organised.",
+            },
+            {
+              step: "Step 2",
+              title: "Convert",
+              body: "Faster responses, SMS follow-up, missed call text-back, and booking tools improve lead conversion.",
+            },
+            {
+              step: "Step 3",
+              title: "Grow",
+              body: "AI, WhatsApp, reviews, campaigns, and reactivation turn ad leads into a long-term growth engine.",
+            },
           ].map((card) => (
             <div
               key={card.title}
               className="rounded-3xl p-8 shadow-sm"
               style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
             >
-              <p className="text-sm font-medium" style={{ color: C.coral }}>{card.step}</p>
-              <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>{card.title}</h3>
-              <p className="mt-3 leading-7" style={{ color: C.muted }}>{card.body}</p>
+              <p className="text-sm font-medium" style={{ color: C.coral }}>
+                {card.step}
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
+                {card.title}
+              </h3>
+              <p className="mt-3 leading-7" style={{ color: C.muted }}>
+                {card.body}
+              </p>
             </div>
           ))}
         </div>
@@ -205,33 +260,48 @@ export default function FuturaTiersPage() {
                     Most popular
                   </div>
                 )}
+
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-sm font-medium" style={{ color: labelColor }}>{tier.name}</p>
-                    <h3 className="mt-2 text-2xl font-semibold" style={{ color: textPrimary }}>{tier.title}</h3>
+                    <p className="text-sm font-medium" style={{ color: labelColor }}>
+                      {tier.name}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-semibold" style={{ color: textPrimary }}>
+                      {tier.title}
+                    </h3>
                   </div>
                   <div
                     className="rounded-2xl px-3 py-2 text-sm font-medium"
-                    style={{ backgroundColor: innerBg, color: isHighlight ? C.coral : C.muted, border: `1px solid ${C.border}` }}
+                    style={{
+                      backgroundColor: innerBg,
+                      color: isHighlight ? C.coral : C.muted,
+                      border: `1px solid ${C.border}`,
+                    }}
                   >
                     {tier.price}
                   </div>
                 </div>
 
-                <p className="mt-5 text-base leading-7" style={{ color: textSecondary }}>{tier.tagline}</p>
+                <p className="mt-5 text-base leading-7" style={{ color: textSecondary }}>
+                  {tier.tagline}
+                </p>
 
                 <div className="mt-6 rounded-2xl p-4" style={{ backgroundColor: innerBg }}>
                   <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: labelColor }}>
                     Google Ads partner angle
                   </p>
-                  <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>{tier.partnerAngle}</p>
+                  <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>
+                    {tier.partnerAngle}
+                  </p>
                 </div>
 
                 <div className="mt-4 rounded-2xl p-4" style={{ backgroundColor: innerBg }}>
                   <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: labelColor }}>
                     How it links to paid ads
                   </p>
-                  <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>{tier.paidAdsLink}</p>
+                  <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>
+                    {tier.paidAdsLink}
+                  </p>
                 </div>
 
                 <ul className="mt-8 space-y-3">
@@ -239,7 +309,7 @@ export default function FuturaTiersPage() {
                     <li key={feature} className="flex items-start gap-3 text-sm leading-6">
                       <span
                         className="mt-1 inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full"
-                        style={{ backgroundColor: isHighlight ? C.coral : C.coral }}
+                        style={{ backgroundColor: C.coral }}
                       />
                       <span style={{ color: textSecondary }}>{feature}</span>
                     </li>
@@ -247,20 +317,31 @@ export default function FuturaTiersPage() {
                 </ul>
 
                 <div className="mt-8 pt-6" style={{ borderTop: `1px solid ${C.border}` }}>
-                  <p className="text-sm" style={{ color: C.muted }}>Outcome</p>
-                  <p className="mt-2 text-base font-medium" style={{ color: textPrimary }}>{tier.outcome}</p>
+                  <p className="text-sm" style={{ color: C.muted }}>
+                    Outcome
+                  </p>
+                  <p className="mt-2 text-base font-medium" style={{ color: textPrimary }}>
+                    {tier.outcome}
+                  </p>
                 </div>
 
-                <button
-                  className="mt-8 rounded-2xl px-5 py-3 text-sm font-medium transition hover:opacity-90"
+                <a
+                  href={calendarUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex rounded-2xl px-5 py-3 text-sm font-medium transition hover:opacity-90"
                   style={
                     isHighlight
                       ? { backgroundColor: C.coral, color: C.white }
-                      : { backgroundColor: C.surfaceHigh, color: C.white, border: `1px solid ${C.border}` }
+                      : {
+                          backgroundColor: C.surfaceHigh,
+                          color: C.white,
+                          border: `1px solid ${C.border}`,
+                        }
                   }
                 >
                   {tier.cta}
-                </button>
+                </a>
               </div>
             );
           })}
@@ -268,7 +349,14 @@ export default function FuturaTiersPage() {
       </section>
 
       {/* ── Comparison Table ─────────────────────────────────────────────────── */}
-      <section id="comparison" style={{ borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, backgroundColor: C.surface }}>
+      <section
+        id="comparison"
+        style={{
+          borderTop: `1px solid ${C.border}`,
+          borderBottom: `1px solid ${C.border}`,
+          backgroundColor: C.surface,
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl" style={{ color: C.white }}>
@@ -280,10 +368,17 @@ export default function FuturaTiersPage() {
           </div>
 
           <div className="overflow-hidden rounded-3xl shadow-sm" style={{ border: `1px solid ${C.border}` }}>
-            <div className="grid grid-cols-4 text-sm font-semibold" style={{ backgroundColor: C.surfaceHigh, borderBottom: `1px solid ${C.border}` }}>
-              <div className="px-6 py-4" style={{ color: C.muted }}>Feature</div>
+            <div
+              className="grid grid-cols-4 text-sm font-semibold"
+              style={{ backgroundColor: C.surfaceHigh, borderBottom: `1px solid ${C.border}` }}
+            >
+              <div className="px-6 py-4" style={{ color: C.muted }}>
+                Feature
+              </div>
               {["Tier 1", "Tier 2", "Tier 3"].map((t) => (
-                <div key={t} className="px-6 py-4 text-center" style={{ color: C.white }}>{t}</div>
+                <div key={t} className="px-6 py-4 text-center" style={{ color: C.white }}>
+                  {t}
+                </div>
               ))}
             </div>
 
@@ -293,7 +388,9 @@ export default function FuturaTiersPage() {
                 className="grid grid-cols-4 text-sm"
                 style={{ backgroundColor: index % 2 === 0 ? C.bg : C.surface }}
               >
-                <div className="px-6 py-4 font-medium" style={{ color: C.white }}>{label}</div>
+                <div className="px-6 py-4 font-medium" style={{ color: C.white }}>
+                  {label}
+                </div>
                 {[t1, t2, t3].map((value, vi) => (
                   <div key={`${label}-${vi}`} className="flex items-center justify-center px-6 py-4">
                     <span
@@ -317,16 +414,31 @@ export default function FuturaTiersPage() {
       {/* ── Partner Pitch + Paid Ads Flow ────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl p-8 shadow-sm" style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}>
-            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>Partner pitch</p>
-            <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>The message to the Google Ads agency</h3>
+          <div
+            className="rounded-3xl p-8 shadow-sm"
+            style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
+          >
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+              Partner pitch
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
+              The message to the Google Ads agency
+            </h3>
             <p className="mt-4 leading-7" style={{ color: C.muted }}>
               We are not replacing the ads strategy. We are strengthening what happens after the click. The better the lead handling, the better the campaign performs, and the easier it is for the agency to retain the client.
             </p>
           </div>
-          <div className="rounded-3xl p-8 shadow-sm" style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}>
-            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>Paid ads flow</p>
-            <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>From click to customer</h3>
+
+          <div
+            className="rounded-3xl p-8 shadow-sm"
+            style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
+          >
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+              Paid ads flow
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
+              From click to customer
+            </h3>
             <div className="mt-6 space-y-3 text-sm">
               {[
                 "Google Ads drives traffic",
@@ -340,11 +452,54 @@ export default function FuturaTiersPage() {
                   className="flex items-center gap-3 rounded-2xl px-4 py-3"
                   style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}
                 >
-                  <span className="inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full" style={{ backgroundColor: C.coral }} />
+                  <span
+                    className="inline-block h-2.5 w-2.5 flex-shrink-0 rounded-full"
+                    style={{ backgroundColor: C.coral }}
+                  />
                   <span style={{ color: C.muted }}>{item}</span>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer CTA ───────────────────────────────────────────────────────── */}
+      <section
+        style={{
+          borderTop: `1px solid ${C.border}`,
+          background: `linear-gradient(180deg, ${C.surface} 0%, ${C.bg} 100%)`,
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-12">
+          <div
+            className="flex flex-col items-start justify-between gap-6 rounded-3xl p-8 lg:flex-row lg:items-center"
+            style={{
+              border: `1px solid ${C.borderHigh}`,
+              backgroundColor: C.surfaceHigh,
+            }}
+          >
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+                Ready to talk?
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold md:text-3xl" style={{ color: C.white }}>
+                Show this system to your Google Ads clients with confidence.
+              </h3>
+              <p className="mt-3 leading-7" style={{ color: C.muted }}>
+                Book a call to explore how Futura Digital can help you add a conversion layer on top of paid ads.
+              </p>
+            </div>
+
+            <a
+              href={calendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl px-6 py-3 text-sm font-medium transition hover:opacity-90"
+              style={{ backgroundColor: C.coral, color: C.white }}
+            >
+              Book a partner call
+            </a>
           </div>
         </div>
       </section>
