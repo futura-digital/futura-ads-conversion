@@ -17,7 +17,8 @@ const C = {
 };
 
 export default function FuturaTiersPage() {
-  const calendarUrl = "https://link.futuradigital.app/widget/booking/SuJF7zuSUQtysLGaeDUL";
+  const calendarUrl =
+    "https://link.futuradigital.app/widget/booking/SuJF7zuSUQtysLGaeDUL";
   const logoPath = "/futura-logo.png";
 
   const tiers = [
@@ -38,14 +39,15 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Capture and organise leads from paid ads.",
-      cta: "Book a call",
+      cta: "Discuss Tier 1",
       highlight: false,
     },
     {
       name: "Tier 2",
       title: "Lead Conversion System",
       price: "From £97/mo",
-      tagline: "Respond faster and convert more of the leads you already pay for.",
+      tagline:
+        "Respond faster and convert more of the leads you already pay for.",
       partnerAngle:
         "Best fit for Google Ads partners focused on improving lead-to-booking performance without adding operational complexity.",
       paidAdsLink:
@@ -59,7 +61,7 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Turn ad enquiries into conversations and bookings.",
-      cta: "Book a call",
+      cta: "Discuss Tier 2",
       highlight: true,
     },
     {
@@ -85,7 +87,7 @@ export default function FuturaTiersPage() {
         "Mobile app access",
       ],
       outcome: "Turn paid leads into a fully automated customer journey.",
-      cta: "Book a call",
+      cta: "Discuss Tier 3",
       highlight: false,
     },
   ];
@@ -108,27 +110,29 @@ export default function FuturaTiersPage() {
     ["Document management", false, false, true],
     ["AI Receptionist", false, false, true],
     ["AI Chat Widget (SDR)", false, false, true],
-  ];
+  ] as const;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: C.bg, color: C.white }}>
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: C.bg, color: C.white }}
+    >
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section style={{ borderBottom: `1px solid ${C.border}` }}>
+      <section
+        style={{
+          borderBottom: `1px solid ${C.border}`,
+          background: `radial-gradient(circle at top left, rgba(229,104,89,0.08), transparent 35%), ${C.bg}`,
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             <div className="mb-10 flex items-center gap-4">
-
-              <img
-                src={logoPath}
-                alt="Futura Digital"
-                className="h-10 w-auto"
-                style={{
-                  border: `1px solid ${C.border}`,
-                  backgroundColor: C.surface,
-                }}
-              />
+              <img src={logoPath} alt="Futura Digital" className="h-10 w-auto" />
               <div>
-                <p className="text-sm font-semibold tracking-wide" style={{ color: C.white }}>
+                <p
+                  className="text-sm font-semibold tracking-wide"
+                  style={{ color: C.white }}
+                >
                   Futura Digital
                 </p>
                 <p className="text-sm" style={{ color: C.muted }}>
@@ -141,20 +145,28 @@ export default function FuturaTiersPage() {
               className="inline-flex rounded-full px-4 py-1 text-sm font-medium"
               style={{
                 border: `1px solid ${C.border}`,
-                color: C.muted,
+                color: C.coral,
                 backgroundColor: C.surface,
               }}
             >
-              Futura Digital × Google Ads Partner Offer
+              Google Ads Partner Offer
             </span>
 
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-6xl" style={{ color: C.white }}>
-              Three CRM tiers built to make paid ads convert better.
+            <h1
+              className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl"
+              style={{ color: C.white, lineHeight: 1.05 }}
+            >
+              The CRM system that helps Google Ads clients convert more of the
+              leads they already pay for.
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: C.muted }}>
-              You run the ads. We install the system that captures, responds to, and converts the leads.
-              The result is stronger return on ad spend, clearer attribution, and better client retention.
+            <p
+              className="mt-6 max-w-3xl text-lg leading-8 md:text-xl"
+              style={{ color: C.muted }}
+            >
+              You run the ads. We install the system that captures, responds to,
+              and converts enquiries faster — helping your clients see better
+              ROI and helping you retain accounts with more confidence.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -173,14 +185,42 @@ export default function FuturaTiersPage() {
                 className="rounded-2xl px-6 py-3 text-sm font-medium transition"
                 style={{
                   border: `1px solid ${C.border}`,
-                  color: C.muted,
+                  color: C.white,
                   backgroundColor: "transparent",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = C.surface)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = C.surface)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "transparent")
+                }
               >
                 Compare features
               </a>
+            </div>
+
+            <div className="mt-10 grid gap-3 md:grid-cols-3">
+              {[
+                "Capture every paid lead",
+                "Improve response speed and booking rate",
+                "Upgrade into AI, WhatsApp and automation",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl px-4 py-4 text-sm"
+                  style={{
+                    backgroundColor: C.surface,
+                    border: `1px solid ${C.border}`,
+                    color: C.muted,
+                  }}
+                >
+                  <span
+                    className="mr-3 inline-block h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: C.coral }}
+                  />
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -209,12 +249,18 @@ export default function FuturaTiersPage() {
             <div
               key={card.title}
               className="rounded-3xl p-8 shadow-sm"
-              style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
+              style={{
+                border: `1px solid ${C.border}`,
+                backgroundColor: C.surface,
+              }}
             >
               <p className="text-sm font-medium" style={{ color: C.coral }}>
                 {card.step}
               </p>
-              <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
+              <h3
+                className="mt-3 text-2xl font-semibold"
+                style={{ color: C.white }}
+              >
                 {card.title}
               </h3>
               <p className="mt-3 leading-7" style={{ color: C.muted }}>
@@ -226,13 +272,21 @@ export default function FuturaTiersPage() {
       </section>
 
       {/* ── Tiers ────────────────────────────────────────────────────────────── */}
-      <section id="tiers" className="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12">
+      <section
+        id="tiers"
+        className="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12"
+      >
         <div className="mb-10 max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl" style={{ color: C.white }}>
+          <h2
+            className="text-3xl font-semibold tracking-tight md:text-4xl"
+            style={{ color: C.white }}
+          >
             The three tiers
           </h2>
           <p className="mt-4 text-lg leading-8" style={{ color: C.muted }}>
-            Each package is designed to support a different stage of the customer journey, while giving the Google Ads partner a stronger performance story.
+            Each package is designed to support a different stage of the
+            customer journey, while giving the Google Ads partner a stronger
+            performance story.
           </p>
         </div>
 
@@ -250,7 +304,10 @@ export default function FuturaTiersPage() {
               <div
                 key={tier.name}
                 className="relative flex h-full flex-col rounded-3xl p-8 shadow-sm"
-                style={{ border: `1px solid ${cardBorder}`, backgroundColor: cardBg }}
+                style={{
+                  border: `1px solid ${cardBorder}`,
+                  backgroundColor: cardBg,
+                }}
               >
                 {isHighlight && (
                   <div
@@ -266,7 +323,10 @@ export default function FuturaTiersPage() {
                     <p className="text-sm font-medium" style={{ color: labelColor }}>
                       {tier.name}
                     </p>
-                    <h3 className="mt-2 text-2xl font-semibold" style={{ color: textPrimary }}>
+                    <h3
+                      className="mt-2 text-2xl font-semibold"
+                      style={{ color: textPrimary }}
+                    >
                       {tier.title}
                     </h3>
                   </div>
@@ -287,7 +347,10 @@ export default function FuturaTiersPage() {
                 </p>
 
                 <div className="mt-6 rounded-2xl p-4" style={{ backgroundColor: innerBg }}>
-                  <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: labelColor }}>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-wide"
+                    style={{ color: labelColor }}
+                  >
                     Google Ads partner angle
                   </p>
                   <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>
@@ -296,7 +359,10 @@ export default function FuturaTiersPage() {
                 </div>
 
                 <div className="mt-4 rounded-2xl p-4" style={{ backgroundColor: innerBg }}>
-                  <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: labelColor }}>
+                  <p
+                    className="text-xs font-semibold uppercase tracking-wide"
+                    style={{ color: labelColor }}
+                  >
                     How it links to paid ads
                   </p>
                   <p className="mt-2 text-sm leading-6" style={{ color: textSecondary }}>
@@ -359,18 +425,28 @@ export default function FuturaTiersPage() {
       >
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl" style={{ color: C.white }}>
+            <h2
+              className="text-3xl font-semibold tracking-tight md:text-4xl"
+              style={{ color: C.white }}
+            >
               Feature comparison
             </h2>
             <p className="mt-4 text-lg leading-8" style={{ color: C.muted }}>
-              A simple view of what each tier includes, so partners can match the right system to the client's paid ads maturity.
+              A simple view of what each tier includes, so partners can match
+              the right system to the client's paid ads maturity.
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-3xl shadow-sm" style={{ border: `1px solid ${C.border}` }}>
+          <div
+            className="overflow-hidden rounded-3xl shadow-sm"
+            style={{ border: `1px solid ${C.border}` }}
+          >
             <div
               className="grid grid-cols-4 text-sm font-semibold"
-              style={{ backgroundColor: C.surfaceHigh, borderBottom: `1px solid ${C.border}` }}
+              style={{
+                backgroundColor: C.surfaceHigh,
+                borderBottom: `1px solid ${C.border}`,
+              }}
             >
               <div className="px-6 py-4" style={{ color: C.muted }}>
                 Feature
@@ -392,7 +468,10 @@ export default function FuturaTiersPage() {
                   {label}
                 </div>
                 {[t1, t2, t3].map((value, vi) => (
-                  <div key={`${label}-${vi}`} className="flex items-center justify-center px-6 py-4">
+                  <div
+                    key={`${label}-${vi}`}
+                    className="flex items-center justify-center px-6 py-4"
+                  >
                     <span
                       className="inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold"
                       style={
@@ -418,14 +497,20 @@ export default function FuturaTiersPage() {
             className="rounded-3xl p-8 shadow-sm"
             style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
           >
-            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+            <p
+              className="text-sm font-semibold uppercase tracking-wide"
+              style={{ color: C.coral }}
+            >
               Partner pitch
             </p>
             <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
               The message to the Google Ads agency
             </h3>
             <p className="mt-4 leading-7" style={{ color: C.muted }}>
-              We are not replacing the ads strategy. We are strengthening what happens after the click. The better the lead handling, the better the campaign performs, and the easier it is for the agency to retain the client.
+              We are not replacing the ads strategy. We are strengthening what
+              happens after the click. The better the lead handling, the better
+              the campaign performs, and the easier it is for the agency to
+              retain the client.
             </p>
           </div>
 
@@ -433,7 +518,10 @@ export default function FuturaTiersPage() {
             className="rounded-3xl p-8 shadow-sm"
             style={{ border: `1px solid ${C.border}`, backgroundColor: C.surface }}
           >
-            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+            <p
+              className="text-sm font-semibold uppercase tracking-wide"
+              style={{ color: C.coral }}
+            >
               Paid ads flow
             </p>
             <h3 className="mt-3 text-2xl font-semibold" style={{ color: C.white }}>
@@ -480,14 +568,21 @@ export default function FuturaTiersPage() {
             }}
           >
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: C.coral }}>
+              <p
+                className="text-sm font-semibold uppercase tracking-wide"
+                style={{ color: C.coral }}
+              >
                 Ready to talk?
               </p>
-              <h3 className="mt-3 text-2xl font-semibold md:text-3xl" style={{ color: C.white }}>
-                Show this system to your Google Ads clients with confidence.
+              <h3
+                className="mt-3 text-2xl font-semibold md:text-3xl"
+                style={{ color: C.white }}
+              >
+                Ready to add a conversion system to your Google Ads offer?
               </h3>
               <p className="mt-3 leading-7" style={{ color: C.muted }}>
-                Book a call to explore how Futura Digital can help you add a conversion layer on top of paid ads.
+                Book a call and see how Futura Digital can help your clients
+                capture, respond to, and convert more enquiries.
               </p>
             </div>
 
